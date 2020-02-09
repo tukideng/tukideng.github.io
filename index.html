@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Anwser</title>
+    <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+    <script src="https://cdn.staticfile.org/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+    <div id="anwser"></div>
+    <script type="text/babel">
+        class MyAnwser extends React.Component {
+            constructor(props) {
+                super(props)
+                this.state = {anwser: "你的答案"}
+                this.changeAnwser = this.changeAnwser.bind(this)
+            }
+            changeAnwser() {
+                this.serverRequest = $.get(this.props.source, function(res) {
+                    console.log(res)
+                    // this.setState({
+                    //     anwser: res.anwser
+                    // })
+                }.bind(this))
+            }
+            componentWillUnmount() {
+                this.serverRequest.abort()
+            }
+            render() {
+                return(
+                    <div>
+                        <h1>{this.state.anwser}</h1>
+                        <button className="btn" onClick={this.changeAnwser}>我的答案</button>
+                    </div>
+                )
+            }
+        }
+        ReactDOM.render(
+            <MyAnwser source="./anwser/anwser.json"/>,
+            document.getElementById("anwser")
+        )
+    </script>
+    <style>
+        div {
+            margin-top: 200px;
+            text-align: center;
+        }
+        .btn {
+            background-color: #555555; /* Green */
+            border-radius: 5px;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            font-size: 16px;
+        }
+    </style>
+</body>
+</html>
