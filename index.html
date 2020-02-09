@@ -21,9 +21,9 @@
             changeAnwser() {
                 this.serverRequest = $.get(this.props.source, function(res) {
                     console.log(res)
-                    // this.setState({
-                    //     anwser: res.anwser
-                    // })
+                    this.setState({
+                        anwser: "res.anwser"
+                    })
                 }.bind(this))
             }
             componentWillUnmount() {
@@ -39,7 +39,7 @@
             }
         }
         ReactDOM.render(
-            <MyAnwser source="./anwser/anwser.json"/>,
+            <MyAnwser source="https:tukideng.github.io/tree/masteranwser/anwser.json"/>,
             document.getElementById("anwser")
         )
     </script>
