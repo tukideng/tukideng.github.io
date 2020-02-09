@@ -22,7 +22,7 @@
                 this.serverRequest = $.get(this.props.source, function(res) {
                     console.log(res)
                     this.setState({
-                        anwser: "res.anwser"
+                        anwser: res.anwser
                     })
                     console.log(this.state.anwser)
                 }.bind(this))
