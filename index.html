@@ -20,7 +20,7 @@
             }
             changeAnwser() {
                 this.serverRequest = $.get(this.props.source, function(res) {
-                    console.log(res)
+                    console.log(res.keys)
                     this.setState({
                         anwser: res.anwser
                     })
