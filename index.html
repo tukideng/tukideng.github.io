@@ -20,7 +20,7 @@
             }
             changeAnwser() {
                 this.serverRequest = $.get(this.props.source, function(res) {
-                    console.log(this.state.anwser)
+                    console.log(res)
                 }.bind(this))
             }
             componentWillUnmount() {
