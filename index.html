@@ -19,6 +19,7 @@
                 this.changeAnwser = this.changeAnwser.bind(this)
             }
             changeAnwser() {
+                console.log("xxx")
                 this.serverRequest = $.get(this.props.source, function(res) {
                     console.log("xxx")
                 }.bind(this))
