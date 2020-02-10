@@ -20,9 +20,11 @@
             }
             changeAnwser() {
                 this.serverRequest = $.get(this.props.source, function(res) {
-                    console.log(res.keys(anwser))
+                    console.log(Object.keys(res))
+                    let keys = Object.keys(res)
+                    let index = parseInt(Math.random()*res.length)
                     this.setState({
-                        anwser: res.anwser
+                        anwser: keys[index]+"："+res[keys[index]]
                     })
                     console.log(this.state.anwser)
                 }.bind(this))
