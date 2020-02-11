@@ -21,7 +21,7 @@
             changeAnwser() {
                 this.serverRequest = $.get(this.props.source, function(res) {
                     let keys = Object.keys(res)
-                    let jj = res.length()
+                    let jj = res.length
                     console.log(jj)
                     let index = parseInt(Math.random()*res.length)
                     console.log(index)
