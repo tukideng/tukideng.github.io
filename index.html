@@ -22,8 +22,13 @@
                 console.log("xxx")
                 this.serverRequest = $.get(this.props.source, function(res) {
                     console.log(res)
-                    let keys = Objec.keys(res)
+                    let keys = Object.keys(res)
                     console.log(keys)
+                    let index = parseInt(Math.random()*res.length)
+                    this.setState({
+                        anwser: keys[index] + ":" + res[keys[index]]
+                    })
+                    console.log(this.setState.anwser)
                 }.bind(this))
             }
             componentWillUnmount() {
