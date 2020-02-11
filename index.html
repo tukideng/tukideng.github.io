@@ -21,7 +21,9 @@
             changeAnwser() {
                 console.log("xxx")
                 this.serverRequest = $.get(this.props.source, function(res) {
-                    console.log("xxx")
+                    console.log(res)
+                    let keys = Objec.keys(res)
+                    console.log(keys)
                 }.bind(this))
             }
             componentWillUnmount() {
